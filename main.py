@@ -38,7 +38,7 @@ def df_to_payload(df: pd.DataFrame) -> List[Dict]:
 
 # ====================== CORE UTILITIES ======================
 
-def img_to_base64('Naw4n.jpg': str) -> str:[cite: 1]
+def img_to_base64(image_path: str) -> str:
     """Convert image to base64 (kept for potential internal use)."""[cite: 1]
     try:[cite: 1]
         img_bytes = Path(image_path).read_bytes()[cite: 1]
