@@ -1,3 +1,0 @@
-# Graphico Backend
-
-

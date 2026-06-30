@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qlevo Store • Premium Digital Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --accent: #a5b4fc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #1e2937 0%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.25) 0%, transparent 50%);
+            animation: glowPulse 15s ease infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 60px -15px rgba(99, 102, 241, 0.4);
+        }
+
+        .product-img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover .product-img {
+            transform: scale(1.12);
+        }
+
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-150%) skewX(-25deg); }
+            20% { transform: translateX(300%) skewX(-25deg); }
+            100% { transform: translateX(300%) skewX(-25deg); }
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 9999px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-indigo-600 rounded-2xl flex items-center justify-center text-2xl font-bold">Q</div>
+                <h1 class="text-2xl font-semibold tracking-tighter">Qlevo</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#" class="hover:text-indigo-400 transition-colors">Software</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">Books</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">Resources</a>
+                <a href="#" class="hover:text-indigo-400 transition-colors">About</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})"
+                        class="px-6 py-3 text-sm font-semibold rounded-2xl border border-white/20 hover:border-indigo-500 transition-all">
+                    <i class="fas fa-shopping-bag mr-2"></i> Cart (0)
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-white/10 text-white/80 text-sm px-5 py-2 rounded-3xl mb-6 backdrop-blur-md">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    Curated Premium Collection
+                </div>
+                <h1 class="text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+                    Digital Excellence,<br>
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Delivered</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-10">
+                    Premium tools, masterful storytelling, and battle-tested coding resources.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#products" 
+                       class="btn-premium px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-lg font-semibold rounded-3xl flex items-center justify-center gap-3 group">
+                        Explore Collection
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <button onclick="document.getElementById('books').scrollIntoView({ behavior: 'smooth' })"
+                            class="px-10 py-5 border border-white/30 hover:border-white/60 text-lg font-medium rounded-3xl transition-all">
+                        Browse Books
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest opacity-60">
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent"></div>
+            SCROLL
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="max-w-7xl mx-auto px-6 py-24">
+        <h2 class="section-title text-5xl font-semibold mb-16 text-center">Featured Products</h2>
+
+        <!-- Software -->
+        <div class="mb-20">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3">
+                <i class="fas fa-laptop-code text-indigo-400"></i> Software & Tools
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card glass rounded-3xl overflow-hidden group">
+                    <div class="relative">
+                        <img src="graphico.png" alt="Graphico Pro" class="product-img w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-black/70 px-4 py-1 rounded-2xl text-xs font-medium backdrop-blur">PRO</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-2">Graphico Pro</h3>
+                        <p class="text-gray-400 mb-6">Advanced data studio for seamless analytics and visualization.</p>
+                        <a href="https://graphico.streamlit.app" target="_blank"
+                           class="btn-premium w-full block text-center py-4 bg-white text-black font-semibold rounded-2xl hover:bg-indigo-100 transition">
+                            Launch App →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books -->
+        <div id="books" class="mb-20">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3">
+                <i class="fas fa-book text-amber-400"></i> Signature Editions
+            </h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <div class="relative">
+                        <img src="october_1.png" alt="October Alibi 1" class="product-img w-full h-80 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-1">The October Alibi</h3>
+                        <p class="text-emerald-400 text-sm mb-4">1st Edition</p>
+                        <p class="text-gray-400 mb-6">A gripping tale of mystery and logic.</p>
+                        <div class="flex gap-4">
+                            <a href="https://www.amazon.com/dp/B0GZ8WXSKR" target="_blank" class="flex-1 btn-premium text-center py-4 bg-white/10 hover:bg-white/20 border border-white/30 rounded-2xl">Amazon</a>
+                            <a href="https://nelu17.gumroad.com/l/october_alibi_edition1" target="_blank" class="flex-1 btn-premium text-center py-4 bg-white text-black font-semibold rounded-2xl">Gumroad</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <div class="relative">
+                        <img src="october_2.png" alt="October Alibi 2" class="product-img w-full h-80 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-1">The October Alibi</h3>
+                        <p class="text-emerald-400 text-sm mb-4">2nd Edition • Expanded</p>
+                        <p class="text-gray-400 mb-6">Deeper arcs and richer universe.</p>
+                        <div class="flex gap-4">
+                            <a href="https://www.amazon.com/dp/B0H2CCRLW7" target="_blank" class="flex-1 btn-premium text-center py-4 bg-white/10 hover:bg-white/20 border border-white/30 rounded-2xl">Amazon</a>
+                            <a href="https://nelu17.gumroad.com/l/october_alibi_edition2" target="_blank" class="flex-1 btn-premium text-center py-4 bg-white text-black font-semibold rounded-2xl">Gumroad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coding Resources -->
+        <div>
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3">
+                <i class="fas fa-code text-sky-400"></i> Coding Mastery
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Add more cards following the same premium pattern -->
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <div class="relative">
+                        <img src="for_loop.png" alt="For Loop" class="product-img w-full h-64 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Python 'for' Loop Mastery</h3>
+                        <p class="text-gray-400 mb-8">Real-world challenges and deep insights.</p>
+                        <a href="https://nelu17.gumroad.com/l/for-loop-problems" target="_blank"
+                           class="btn-premium block text-center py-4 bg-white text-black font-semibold rounded-2xl">Get on Gumroad</a>
+                    </div>
+                </div>
+
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <div class="relative">
+                        <img src="while_loop.png" alt="While Loop" class="product-img w-full h-64 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Python 'while' Loop Deep Dive</h3>
+                        <p class="text-gray-400 mb-8">Master conditional logic.</p>
+                        <a href="https://nelu17.gumroad.com/l/while-loop-set" target="_blank"
+                           class="btn-premium block text-center py-4 bg-white text-black font-semibold rounded-2xl">Get on Gumroad</a>
+                    </div>
+                </div>
+
+                <div class="card glass rounded-3xl overflow-hidden">
+                    <div class="relative">
+                        <img src="ink.png" alt="Code In The Ink" class="product-img w-full h-64 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Code In The Ink</h3>
+                        <p class="text-gray-400 mb-8">Where narrative meets syntax.</p>
+                        <a href="https://nelu17.gumroad.com/l/code_in_ink_full" target="_blank"
+                           class="btn-premium block text-center py-4 bg-white text-black font-semibold rounded-2xl">Get on Gumroad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500">© 2026 Qlevo Store • Crafted with precision</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('fade-in');
+                observer.observe(card);
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-2xl', 'bg-black/80');
+            } else {
+                nav.classList.remove('shadow-2xl', 'bg-black/80');
+            }
+        });
+
+        // Initialize
+        window.onload = () => {
+            revealOnScroll();
+        };
+    </script>
+</body>
+</html>
